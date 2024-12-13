@@ -13,8 +13,8 @@ import warnings
 
 # This is a demo for single experiment
 def SINGLE_EXPERIMENT():
-    defect_pos = np.array([[-0.0], [-0.0]])
-    options = EM_options(0.0004, 0.01, 3, 2.4, 1.5, defect_pos, bg_std_depth=0.10, step=-0.4, spline_flag=False)
+    defect_pos = np.array([[-0.9], [-1.4]])
+    options = EM_options(0.0008, 0.01, 3, 2.4, 1.5, defect_pos, bg_std_depth=0.1, step=-0.35, spline_flag=False)
     print(options.bg_k, options.bg_std_depth)
     pcd, label, _, _ = depression_circle_v2(options, num_p=150)
 
