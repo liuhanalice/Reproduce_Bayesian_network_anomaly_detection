@@ -73,10 +73,18 @@ trans: $\tau = \frac{r_2}{r_1}$, steepness, smaller --> steeper
 
 ### Generate Defect on Corners
 Depth = 3
+
 - Single Experiment:
-```
-    options = EM_options(0.0008, 0.01, 3, 2.4, 1.5, defect_pos=np.array([[-0.9], [-1.4]]), bg_std_depth=0.1, step=-0.35, spline_flag=False)
-```
+>File: Single_Experiment.py (with modified options)
+>
+>Data: not saved
+>
+>Options:
+>
+> ```
+>options = EM_options(0.0008, 0.01, 3, 2.4, 1.5, defect_pos=np.array([[-0.9], [-1.4]]), bg_std_depth=0.1, step=-0.35, spline_flag=False)
+>```
+>
 Ground Truth:
 ![alt text](/Reproduce/images/image-7.png)
 ![alt text](/Reproduce/images/image-8.png)
@@ -84,3 +92,23 @@ Ground Truth:
 Predicted:
 ![alt text](/Reproduce/images/image-9.png)
 ![alt text](/Reproduce/images/image-10.png)
+
+- 30 Samples Experiments
+
+>File: EM_DRG_Depth_3_reproduce_corner.py
+>
+>Data: Reproduce_corner_result/Depth_3/data3
+>
+>Options:
+>
+> ```
+>positions = np.array([[-0.7], [-1.4]]) + np.random.uniform(-0.5, 0.5, (2, num_experiments))
+>for i in range(num_experiments):
+>  cur_pos = positions[:, i: i + 1]
+>  options = EM_options(0.0008, 0.01, depth, depth * 0.8, 1.5, cur_pos, bg_std_depth=0.10, step=-0.35, spline_flag=False)
+>```
+>
+|Experiment d=3 | FPR   | FNR |
+| -------- | ------- | ------- |
+| Single Experiment | 0.000323265909300822  | 0.11194029850746269 |
+| 30 Experiments average | 0.00030863243840739533   | 0.10106883983157165 |
