@@ -40,7 +40,7 @@ defect_depth: $d$
 
 defect_radius: $r_2$
 
-trans: $ \tau = \frac{r_2}{r_1}$, steepness, smaller --> steeper
+trans: $\tau = \frac{r_2}{r_1}$, steepness, smaller --> steeper
 
 - defect_pos: defect position (x,y)
   - alternate example: (-0.9, -1.4)
