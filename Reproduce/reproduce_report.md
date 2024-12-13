@@ -1,4 +1,4 @@
-# Replicate Report
+# Reproduce Report
 
 ## EM_options for generating point cloud 
 
