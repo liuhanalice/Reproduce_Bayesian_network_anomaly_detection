@@ -72,9 +72,9 @@ trans: $\tau = \frac{r_2}{r_1}$, steepness, smaller --> steeper
 | single experiment| 0.004533243787777031    | 0.01137521222410866|
 
 ### Generate Defect on Corners
-Depth = 3:
+Depth = 3, Single Experiment:
 ```
-    options = EM_options(0.0008, 0.01, 3, 2.4, 1.5, defect_pos, bg_std_depth=0.1, step=-0.35, spline_flag=False)
+    options = EM_options(0.0008, 0.01, 3, 2.4, 1.5, defect_pos=np.array([[-0.9], [-1.4]]), bg_std_depth=0.1, step=-0.35, spline_flag=False)
 ```
 ![alt text](image-7.png)
 ![alt text](image-8.png)
