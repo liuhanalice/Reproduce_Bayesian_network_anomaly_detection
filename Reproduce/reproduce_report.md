@@ -26,15 +26,15 @@ Single_Experiment setting (for depth 3):
 ``` 
 options = EM_options(0.0004, 0.01, 3, 2.4, 1.5, defect_pos=np.array([[-0.0], [-0.0]]), bg_std_depth=0.10, step=-0.4, spline_flag=False) 
 ```
-![alt text](image.png)
+![alt text](/Reproduce/images/image.png)
 - bg_k: reference surface shape
   - alternate example: 0.001
-  ![alt text](image-1.png)
+  ![alt text](/Reproduce/images/image-1.png)
 - outliers_rate: number of outliers
   - alternate example: 0.1
-  ![alt text](image-2.png)
+  ![alt text](/Reproduce/images/image-2.png)
 - defect_depth, defetct_radius, trans: see below image (cropped from the paper)
-![alt text](image-3.png)
+![alt text](/Reproduce/images/image-3.png)
 
 defect_depth: $d$
 
@@ -44,14 +44,14 @@ trans: $\tau = \frac{r_2}{r_1}$, steepness, smaller --> steeper
 
 - defect_pos: defect position (x,y)
   - alternate example: (-0.9, -1.4)
-  ![alt text](image-4.png)
+  ![alt text](/Reproduce/images/image-4.png)
 
 - bg_std_depth: different noise variance, refer to experiment 1 in 5.1.1 in the paper
   - alternate example: 0.15
-  ![alt text](image-5.png)
+  ![alt text](/Reproduce/images/image-5.png)
 
 - step: <0, absolute value = the gap between surface and red defect area (mentioned in the top left parts of the paper on page 1182 and Figure 6), note that the blue defact part does not move down accordingly
-![alt text](image-6.png)
+![alt text](/Reproduce/images/image-6.png)
 
 
 ## Experiments
@@ -72,9 +72,15 @@ trans: $\tau = \frac{r_2}{r_1}$, steepness, smaller --> steeper
 | single experiment| 0.004533243787777031    | 0.01137521222410866|
 
 ### Generate Defect on Corners
-Depth = 3, Single Experiment:
+Depth = 3
+- Single Experiment:
 ```
     options = EM_options(0.0008, 0.01, 3, 2.4, 1.5, defect_pos=np.array([[-0.9], [-1.4]]), bg_std_depth=0.1, step=-0.35, spline_flag=False)
 ```
-![alt text](image-7.png)
-![alt text](image-8.png)
+Ground Truth:
+![alt text](/Reproduce/images/image-7.png)
+![alt text](/Reproduce/images/image-8.png)
+
+Predicted:
+![alt text](/Reproduce/images/image-9.png)
+![alt text](/Reproduce/images/image-10.png)
