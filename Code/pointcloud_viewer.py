@@ -14,9 +14,9 @@ import warnings
 # This is a demo for single experiment
 def POINTCLOUD_VIEWER():
     
-    pcd =  o3d.io.read_point_cloud( "Reproduce_corner_result/Depth_7/data3/pcd_28.pcd")
-    label = np.load("Reproduce_corner_result/Depth_7/data3/label_28.npy")
-    est_label =  np.load("Reproduce_corner_result/Depth_7/result3/EM_DRG_est_label_28.npy")
+    pcd =  o3d.io.read_point_cloud( "Reproduce_corner_result/Depth_7_R4/data3/pcd_19.pcd")
+    label = np.load("Reproduce_corner_result/Depth_7_R4/data3/label_19.npy")
+    est_label =  np.load("Reproduce_corner_result/Depth_7_R4/result3/EM_DRG_est_label_19.npy")
 
     Visualization_pcd(np.asarray(pcd.points[:]).astype(np.float64), label, scale=1)
     Visualization_pcd(np.asarray(pcd.points[:]).astype(np.float64), est_label, scale=1)

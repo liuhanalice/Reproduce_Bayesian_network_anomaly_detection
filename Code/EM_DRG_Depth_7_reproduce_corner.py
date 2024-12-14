@@ -12,22 +12,22 @@ def experiments_depth(depth):
     print("Experiments of Depth (EM_DIRECTED_GRAPH)!")
     print("depth:", depth)
     num_experiments = 30
-    positions = np.array([[-0.7], [-1.4]]) + np.random.uniform(-0.5, 0.5, (2, num_experiments))
+    positions = np.array([[-0.5], [-1.1]]) + np.random.uniform(-0.3, 0.3, (2, num_experiments))
     FNR_vec = np.zeros((num_experiments,))
     FPR_vec = np.zeros((num_experiments,))
     for i in range(num_experiments):
         print("Current i is: ", i)
         cur_pos = positions[:, i: i + 1]
-        options = EM_options(0.0008, 0.01, depth, 2.4, 1.5, cur_pos, bg_std_depth=0.10, step=-0.35, spline_flag=False)
+        options = EM_options(0.0008, 0.01, depth, 4, 1.5, cur_pos, bg_std_depth=0.10, step=-0.35, spline_flag=False)
         print("options", options.bg_k, options.bg_std_depth)
         pcd, label, _, _ = depression_circle_v2(options, num_p=150)
 
-        o3d.io.write_point_cloud('./Reproduce_corner_result/Depth_7/data3/pcd_' + str(i) + '.pcd', pcd)
-        np.save('./Reproduce_corner_result/Depth_7/data3/label_' + str(i), label)
+        o3d.io.write_point_cloud('./Reproduce_corner_result/Depth_7_R4/data3/pcd_' + str(i) + '.pcd', pcd)
+        np.save('./Reproduce_corner_result/Depth_7_R4/data3/label_' + str(i), label)
 
         est_label = EM_Directed_Graphical_Model(pcd, label, NN=35, n_knot=10, epoch_EM=16, C_f=1 / 4, C_ns=1 / 48)
 
-        np.save('./Reproduce_corner_result/Depth_7/result3/EM_DRG_est_label_' + str(i), est_label)
+        np.save('./Reproduce_corner_result/Depth_7_R4/result3/EM_DRG_est_label_' + str(i), est_label)
 
         confs_mat = metrics.ConfusionMatrix(number_of_labels=3)
         confs_mat.count_predicted_batch_hard(label, est_label)
@@ -44,8 +44,8 @@ def experiments_depth(depth):
     print("FNR_vec_Ratio" + str(depth), FNR_vec)
     print("Average FNR", np.mean(FNR_vec))
 
-    np.save('./Reproduce_corner_result/Depth_7/result3/EM_DRG_FPR', FPR_vec)
-    np.save('./Reproduce_corner_result/Depth_7/result3/EM_DRG_FNR', FNR_vec)
+    np.save('./Reproduce_corner_result/Depth_7_R4/result3/EM_DRG_FPR', FPR_vec)
+    np.save('./Reproduce_corner_result/Depth_7_R4/result3/EM_DRG_FNR', FNR_vec)
 
 
 if __name__ == '__main__':
