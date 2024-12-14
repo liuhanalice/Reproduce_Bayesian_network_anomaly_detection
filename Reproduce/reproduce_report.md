@@ -72,7 +72,7 @@ trans: $\tau = \frac{r_2}{r_1}$, steepness, smaller --> steeper
 | single experiment| 0.004533243787777031    | 0.01137521222410866|
 
 ### Generate Defect on Corners
-Depth = 3
+#### Depth = 3
 
 - Single Experiment:
 >File: Single_Experiment.py (with modified options)
@@ -102,6 +102,7 @@ Predicted:
 >Options:
 >
 > ```
+>depth = 3
 >positions = np.array([[-0.7], [-1.4]]) + np.random.uniform(-0.5, 0.5, (2, num_experiments))
 >for i in range(num_experiments):
 >  cur_pos = positions[:, i: i + 1]
@@ -112,3 +113,47 @@ Predicted:
 | -------- | ------- | ------- |
 | Single Experiment | 0.000323265909300822  | 0.11194029850746269 |
 | 30 Experiments average | 0.00030863243840739533   | 0.10106883983157165 |
+
+#### Depth = 7
+
+- Single Experiment:
+>File: Single_Experiment.py (with modified options)
+>
+>Data: not saved
+>
+>Options:
+>
+> ```
+>options = EM_options(0.0008, 0.01, 7, 2.4, 1.5, defect_pos=np.array([[-0.9], [-1.4]]), bg_std_depth=0.1, step=-0.35, spline_flag=False)
+>```
+>
+Ground Truth:
+
+![alt text](images/image_corner_d7_truth.png)
+![alt text](images/image_corner_d7_truth(1).png)
+
+Predicted:
+![alt text](images/image_corner_d7_pred.png)
+![alt text](images/image_corner_d7_pred(1).png)
+
+- 30 Samples Experiments
+
+>File: EM_DRG_Depth_7_reproduce_corner.py
+>
+>Data: Reproduce_corner_result/Depth_7/data3
+>
+>Options:
+>
+> ```
+>depth = 7
+>positions = np.array([[-0.7], [-1.4]]) + np.random.uniform(-0.5, 0.5, (2, num_experiments))
+>for i in range(num_experiments):
+>  cur_pos = positions[:, i: i + 1]
+>  options = EM_options(0.0008, 0.01, depth, 2.4, 1.5, cur_pos, bg_std_depth=0.10, step=-0.35, spline_flag=False)
+>```
+>
+
+|Experiment d=7 | FPR   | FNR |
+| -------- | ------- | ------- |
+| Single Experiment | 0.0  | 0.5643656716417911 |
+| 30 Experiments average | 0.00018113566847798642   | 0.5630658911177207 |
