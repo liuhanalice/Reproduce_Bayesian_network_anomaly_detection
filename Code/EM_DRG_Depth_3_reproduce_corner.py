@@ -18,7 +18,7 @@ def experiments_depth(depth):
     for i in range(num_experiments):
         print("Current i is: ", i)
         cur_pos = positions[:, i: i + 1]
-        options = EM_options(0.0008, 0.01, depth, depth * 0.8, 1.5, cur_pos, bg_std_depth=0.10, step=-0.35, spline_flag=False)
+        options = EM_options(0.0004, 0.01, depth, depth * 0.8, 1.5, cur_pos, bg_std_depth=0.10, step=-0.35, spline_flag=False)
         print("options", options.bg_k, options.bg_std_depth)
         pcd, label, _, _ = depression_circle_v2(options, num_p=150)
 
