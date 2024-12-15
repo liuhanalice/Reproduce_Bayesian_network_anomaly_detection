@@ -72,10 +72,10 @@ trans: $\tau = \frac{r_2}{r_1}$, steepness, smaller --> steeper
 | single experiment| 0.004533243787777031    | 0.01137521222410866|
 
 ### Generate Defect on Corners
-#### Depth = 3, R = 2.4
 
 - Single Experiment:
->File: Single_Experiment.py (with modified options)
+
+>File: Single_Experiment.py (modify options accordingly)
 >
 >Data: not saved
 >
@@ -85,6 +85,30 @@ trans: $\tau = \frac{r_2}{r_1}$, steepness, smaller --> steeper
 >options = EM_options(0.0008, 0.01, 3, 2.4, 1.5, defect_pos=np.array([[-0.9], [-1.4]]), bg_std_depth=0.1, step=-0.35, spline_flag=False)
 >```
 >
+
+- 30 Samples Experiments:
+
+>File: Reproduce_30Experiments.py (with command line args)
+>
+>e.g: python Reproduce_30Experiments.py --bg_k 0.0004 --x -0.7 --y -1.4 --d 3 --r 2.4 --range 0.5
+>
+>Data: Reproduce_corner_result/Depth_[d]_R[r]_bgk[bg_k]/data3
+>
+>Options:
+>
+> ```
+>depth = 3
+>positions = np.array([[x], [y]]) + np.random.uniform(-range, range, (2, num_experiments))
+>for i in range(num_experiments):
+>  cur_pos = positions[:, i: i + 1]
+>  options = EM_options(bg_k, 0.01, d, r, 1.5, cur_pos, bg_std_depth=0.10, step=-0.35, spline_flag=False)
+>```
+>
+
+#### bk_g = 0.0008, Depth = 3, R = 2.4
+
+- Example Sample:
+
 Ground Truth:
 ![alt text](/Reproduce/images/image-7.png)
 ![alt text](/Reproduce/images/image-8.png)
@@ -93,40 +117,21 @@ Predicted:
 ![alt text](/Reproduce/images/image-9.png)
 ![alt text](/Reproduce/images/image-10.png)
 
-- 30 Samples Experiments
+- 30 Samples Experiments:
 
->File: EM_DRG_Depth_3_reproduce_corner.py (with modified options)
->
->Data: Reproduce_corner_result/Depth_3/data3
->
->Options:
->
-> ```
->depth = 3
->positions = np.array([[-0.7], [-1.4]]) + np.random.uniform(-0.5, 0.5, (2, num_experiments))
->for i in range(num_experiments):
->  cur_pos = positions[:, i: i + 1]
->  options = EM_options(0.0008, 0.01, depth, depth * 0.8, 1.5, cur_pos, bg_std_depth=0.10, step=-0.35, spline_flag=False)
->```
->
-|Experiment d=3, r=2.4 | FPR   | FNR |
+```
+python Reproduce_30Experiments.py --bg_k 0.0008 --x -0.7 --y -1.4 --d 3 --r 2.4 --range 0.5
+```
+
+|Experiment bg_k=0.0008, d=3, r=2.4 | FPR   | FNR |
 | -------- | ------- | ------- |
 | Single Experiment | 0.000323265909300822  | 0.11194029850746269 |
 | 30 Experiments average | 0.00030863243840739533   | 0.10106883983157165 |
 
-#### Depth = 7, R = 2.4
+#### bk_g = 0.0008, Depth = 7, R = 2.4
 
-- Single Experiment:
->File: Single_Experiment.py (with modified options)
->
->Data: not saved
->
->Options:
->
-> ```
->options = EM_options(0.0008, 0.01, 7, 2.4, 1.5, defect_pos=np.array([[-0.9], [-1.4]]), bg_std_depth=0.1, step=-0.35, spline_flag=False)
->```
->
+- Example Sample:
+
 Ground Truth:
 
 ![alt text](images/image_corner_d7_truth.png)
@@ -136,64 +141,93 @@ Predicted:
 ![alt text](images/image_corner_d7_pred.png)
 ![alt text](images/image_corner_d7_pred(1).png)
 
-- 30 Samples Experiments
+- 30 Samples Experiments:
 
->File: EM_DRG_Depth_7_reproduce_corner.py (with modified options)
->
->Data: Reproduce_corner_result/Depth_7/data3
->
->Options:
->
-> ```
->depth = 7
->positions = np.array([[-0.7], [-1.4]]) + np.random.uniform(-0.5, 0.5, (2, num_experiments))
->for i in range(num_experiments):
->  cur_pos = positions[:, i: i + 1]
->  options = EM_options(0.0008, 0.01, depth, 2.4, 1.5, cur_pos, bg_std_depth=0.10, step=-0.35, spline_flag=False)
->```
->
+```
+python Reproduce_30Experiments.py --bg_k 0.0008 --x -0.7 --y -1.4 --d 7 --r 2.4 --range 0.5
+```
 
-|Experiment d=7, r=2.4 | FPR   | FNR |
+|Experiment bg_k=0.0008, d=7, r=2.4 | FPR   | FNR |
 | -------- | ------- | ------- |
 | Single Experiment | 0.0  | 0.5643656716417911 |
 | 30 Experiments average | 0.00018113566847798642   | 0.5630658911177207 |
 
-#### Depth = 7, R = 4
+#### bk_g = 0.0008, Depth = 7, R = 4
 
-- Single Experiment:
->File: Single_Experiment.py (with modified options)
->
->Data: not saved
->
->Options:
->
-> ```
->options = EM_options(0.0008, 0.01, 7, 4, 1.5, defect_pos=np.array([[-0.7], [-1.3]]), bg_std_depth=0.1, step=-0.35, spline_flag=False)
->```
->
+- Example Sample:
+
 Ground Truth:
 ![alt text](images/image_corner_d7r4_truth.png)
 Predicted:
 ![alt text](images/image_corner_d7r4_pred.png)
 
-- 30 Samples Experiments
+- 30 Samples Experiments:
 
->File: EM_DRG_Depth_7_reproduce_corner.py (with modified options)
->
->Data: Reproduce_corner_result/Depth_7_R4/data3
->
->Options:
->
-> ```
->depth = 7
->positions = np.array([[-0.5], [-1.1]]) + np.random.uniform(-0.3, 0.3, (2, num_experiments))
->for i in range(num_experiments):
->  cur_pos = positions[:, i: i + 1]
->  options = EM_options(0.0008, 0.01, depth, 4, 1.5, cur_pos, bg_std_depth=0.10, step=-0.35, spline_flag=False)
->```
->
+```
+python Reproduce_30Experiments.py --bg_k 0.0008 --x -0.5 --y -1.1 --d 7 --r 4 --range 0.3
+```
 
-|Experiment d=7, r=4 | FPR   | FNR |
+|Experiment bg_k=0.0008, d=7, r=4 | FPR   | FNR |
 | -------- | ------- | ------- |
 | Single Experiment | 0.0019368295589988081 | 0.08857808857808858 |
 | 30 Experiments average | 0.0014987994024467527   | 0.04073500973066669 |
+
+
+#### bk_g = 0.0004, Depth = 3, R = 2.4
+
+- Example Sample:
+
+Ground Truth:
+![alt text](images/image_corner_d7r24bgk0004_truth.png)
+Predicted:
+![alt text](images/image_corner_d7r24bgk0004_pred.png)
+
+- 30 Samples Experiments:
+
+```
+python Reproduce_30Experiments.py --bg_k 0.0004 --x -0.7 --y -1.4 --d 3 --r 2.4 --range 0.5
+```
+
+|Experiment bg_k=0.0004, d=3, r=2.4 | FPR   | FNR |
+| -------- | ------- | ------- |
+| Single Experiment | 4.6180844185831714e-05 | 0.07555970149253731 |
+| 30 Experiments average | 2.918740400449493e-05   | 0.08358546054176388 |
+
+
+#### bk_g = 0.0004, Depth = 7, R = 4
+
+- Example Sample:
+
+Ground Truth:
+![alt text](images/image_corner_d7r4bgk0004_truth.png)
+Predicted:
+![alt text](images/image_corner_d7r4bgk0004_pred.png)
+
+- 30 Samples Experiments:
+
+```
+python Reproduce_30Experiments.py --bg_k 0.0004 --x -0.5 --y -1.1 --d 3 --r 2.4 --range 0.3
+```
+
+|Experiment bg_k=0.0004, d=7, r=4 | FPR   | FNR |
+| -------- | ------- | ------- |
+| Single Experiment | 0.0004964257347100874 | 0.05366666666666667 |
+| 30 Experiments average | 0.00058562598213365   | 0.035372197774294775 |
+
+#### Result Summary (defect around corners)
+
+|Experiment | Data | FPR (average)  | FNR (average)|
+| -------- | ------- | ------- | ------- |
+| bg_k=0.0004, d=3, r=2.4 | Code/Reproduce_corner_result/Depth_3_R2.4_bgk0004/data3 | 2.918740400449493e-05   | 0.08358546054176388 |
+| bg_k=0.0004, d=5, r=2.4 | --- | ---  |---|
+| bg_k=0.0004, d=7, r=2.4 | --- | ---   | --- |
+| bg_k=0.0004, d=7, r=4 | Code/Reproduce_corner_result/Depth_7_R4_bgk0004/data3 | 0.00058562598213365   | 0.035372197774294775 |
+| bg_k=0.0008, d=3, r=2.4 | Code/Reproduce_corner_result/Depth_3_R2.4_bgk0008/data3 | 0.00030863243840739533   | 0.10106883983157165 |
+| bg_k=0.0008, d=5, r=2.4 | --- | ---  |---|
+| bg_k=0.0008, d=7, r=2.4 | Code/Reproduce_corner_result/Depth_7_R2.4_bgk0008/data3 | 0.00018113566847798642   | 0.5630658911177207 |
+| bg_k=0.0008, d=7, r=4 | Code/Reproduce_corner_result/Depth_7_R4_bgk0008/data3 | 0.0014987994024467527   | 0.04073500973066669 |
+
+
+
+
+

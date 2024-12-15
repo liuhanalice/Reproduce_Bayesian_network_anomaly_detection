@@ -22,12 +22,12 @@ def experiments_depth(depth):
         print("options", options.bg_k, options.bg_std_depth)
         pcd, label, _, _ = depression_circle_v2(options, num_p=150)
 
-        o3d.io.write_point_cloud('./Reproduce_corner_result/Depth_3/data3/pcd_' + str(i) + '.pcd', pcd)
-        np.save('./Reproduce_corner_result/Depth_3/data3/label_' + str(i), label)
+        o3d.io.write_point_cloud('./Reproduce_corner_result/Depth_3_R2.4_bgk0004/data3/pcd_' + str(i) + '.pcd', pcd)
+        np.save('./Reproduce_corner_result/Depth_3_R2.4_bgk0004/data3/label_' + str(i), label)
 
         est_label = EM_Directed_Graphical_Model(pcd, label, NN=35, n_knot=10, epoch_EM=16, C_f=1 / 4, C_ns=1 / 48)
 
-        np.save('./Reproduce_corner_result/Depth_3/result3/EM_DRG_est_label_' + str(i), est_label)
+        np.save('./Reproduce_corner_result/Depth_3_R2.4_bgk0004/result3/EM_DRG_est_label_' + str(i), est_label)
 
         confs_mat = metrics.ConfusionMatrix(number_of_labels=3)
         confs_mat.count_predicted_batch_hard(label, est_label)
@@ -44,8 +44,8 @@ def experiments_depth(depth):
     print("FNR_vec_Ratio" + str(depth), FNR_vec)
     print("Average FNR", np.mean(FNR_vec))
 
-    np.save('./Reproduce_corner_result/Depth_3/result3/EM_DRG_FPR', FPR_vec)
-    np.save('./Reproduce_corner_result/Depth_3/result3/EM_DRG_FNR', FNR_vec)
+    np.save('./Reproduce_corner_result/Depth_3_R2.4_bgk0004/result3/EM_DRG_FPR', FPR_vec)
+    np.save('./Reproduce_corner_result/Depth_3_R2.4_bgk0004/result3/EM_DRG_FNR', FNR_vec)
 
 
 if __name__ == '__main__':
