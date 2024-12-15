@@ -90,7 +90,7 @@ trans: $\tau = \frac{r_2}{r_1}$, steepness, smaller --> steeper
 
 >File: Reproduce_30Experiments.py (with command line args)
 >
->e.g: python Reproduce_30Experiments.py --bg_k 0.0004 --x -0.7 --y -1.4 --d 3 --r 2.4 --range 0.5
+>e.g: python Reproduce_30Experiments.py --bg_k 0.0004 --x -0.7 --y -1.4 --d 3 --r 2.4 --randrange 0.5
 >
 >Data: Reproduce_corner_result/Depth_[d]_R[r]_bgk[bg_k]/data3
 >
@@ -120,7 +120,7 @@ Predicted:
 - 30 Samples Experiments:
 
 ```
-python Reproduce_30Experiments.py --bg_k 0.0008 --x -0.7 --y -1.4 --d 3 --r 2.4 --range 0.5
+python Reproduce_30Experiments.py --bg_k 0.0008 --x -0.7 --y -1.4 --d 3 --r 2.4 --randrange 0.5
 ```
 
 |Experiment bg_k=0.0008, d=3, r=2.4 | FPR   | FNR |
@@ -144,7 +144,7 @@ Predicted:
 - 30 Samples Experiments:
 
 ```
-python Reproduce_30Experiments.py --bg_k 0.0008 --x -0.7 --y -1.4 --d 7 --r 2.4 --range 0.5
+python Reproduce_30Experiments.py --bg_k 0.0008 --x -0.7 --y -1.4 --d 7 --r 2.4 --randrange 0.5
 ```
 
 |Experiment bg_k=0.0008, d=7, r=2.4 | FPR   | FNR |
@@ -164,7 +164,7 @@ Predicted:
 - 30 Samples Experiments:
 
 ```
-python Reproduce_30Experiments.py --bg_k 0.0008 --x -0.5 --y -1.1 --d 7 --r 4 --range 0.3
+python Reproduce_30Experiments.py --bg_k 0.0008 --x -0.5 --y -1.1 --d 7 --r 4 --randrange 0.3
 ```
 
 |Experiment bg_k=0.0008, d=7, r=4 | FPR   | FNR |
@@ -185,7 +185,7 @@ Predicted:
 - 30 Samples Experiments:
 
 ```
-python Reproduce_30Experiments.py --bg_k 0.0004 --x -0.7 --y -1.4 --d 3 --r 2.4 --range 0.5
+python Reproduce_30Experiments.py --bg_k 0.0004 --x -0.7 --y -1.4 --d 3 --r 2.4 --randrange 0.5
 ```
 
 |Experiment bg_k=0.0004, d=3, r=2.4 | FPR   | FNR |
@@ -206,7 +206,7 @@ Predicted:
 - 30 Samples Experiments:
 
 ```
-python Reproduce_30Experiments.py --bg_k 0.0004 --x -0.5 --y -1.1 --d 3 --r 2.4 --range 0.3
+python Reproduce_30Experiments.py --bg_k 0.0004 --x -0.5 --y -1.1 --d 3 --r 2.4 --randrange 0.3
 ```
 
 |Experiment bg_k=0.0004, d=7, r=4 | FPR   | FNR |

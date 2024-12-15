@@ -10,9 +10,9 @@ import argparse
 import os
 from tqdm import tqdm
 
-# Sample command line: python Reproduce_30Experiments.py --bg_k 0.0004 --x -0.7 --y -1.4 --d 3 --r 2.4 --range 0.5
+# Sample command line: python Reproduce_30Experiments.py --bg_k 0.0004 --x -0.7 --y -1.4 --d 5 --r 2.4 --randrange 0.5
 
-def experiments(bg_k, x, y, d, r, range):
+def experiments(bg_k, x, y, d, r, randrange):
     # create data dirs
     folderpath = './Reproduce_corner_result/Depth_' + str(d) + '_R' + str(r) + '_bgk' + str(bg_k) 
     os.makedirs(folderpath, exist_ok=True)
@@ -24,7 +24,7 @@ def experiments(bg_k, x, y, d, r, range):
     print("Experiments of Depth (EM_DIRECTED_GRAPH)!")
     print("depth:", d)
     num_experiments = 30
-    positions = np.array([[x], [y]]) + np.random.uniform(-range, range, (2, num_experiments))
+    positions = np.array([[x], [y]]) + np.random.uniform(-randrange, randrange, (2, num_experiments))
     FNR_vec = np.zeros((num_experiments,))
     FPR_vec = np.zeros((num_experiments,))
     for i in tqdm(range(num_experiments)):
@@ -72,8 +72,8 @@ if __name__ == '__main__':
     parser.add_argument('--y', type=float, required=True, help='y-coordinate center value')
     parser.add_argument('--d', type=float, required=True, help='defect depth')
     parser.add_argument('--r', type=float, required=True, help='defect radius on surface')
-    parser.add_argument('--range', type=float, required=True, help='random range for 30 experiments')
+    parser.add_argument('--randrange', type=float, required=True, help='random range for 30 experiments')
 
     args = parser.parse_args()
 
-    experiments(bg_k=args.bg_k, x=args.x, y=args.y, d=args.d, r=args.r, range=args.range)
+    experiments(bg_k=args.bg_k, x=args.x, y=args.y, d=args.d, r=args.r, randrange=args.randrange)
