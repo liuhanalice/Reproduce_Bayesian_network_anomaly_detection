@@ -219,11 +219,11 @@ python Reproduce_30Experiments.py --bg_k 0.0004 --x -0.5 --y -1.1 --d 3 --r 2.4 
 |Experiment | Data | FPR (average)  | FNR (average)|
 | -------- | ------- | ------- | ------- |
 | bg_k=0.0004, d=3, r=2.4 | Code/Reproduce_corner_result/Depth_3_R2.4_bgk0004/data3 | 2.918740400449493e-05   | 0.08358546054176388 |
-| bg_k=0.0004, d=5, r=2.4 | --- | ---  |---|
-| bg_k=0.0004, d=7, r=2.4 | --- | ---   | --- |
+| bg_k=0.0004, d=5, r=2.4 | Code/Reproduce_corner_result/Depth_5_R2.4_bgk0004/data3 | 5.530425585513823e-05 |0.17087425207068455|
+| bg_k=0.0004, d=7, r=2.4 | Code/Reproduce_corner_result/Depth_7_R2.4_bgk0004/data3 | 2.2946862381795878e-05 | 0.5275848183572311 |
 | bg_k=0.0004, d=7, r=4 | Code/Reproduce_corner_result/Depth_7_R4_bgk0004/data3 | 0.00058562598213365   | 0.035372197774294775 |
 | bg_k=0.0008, d=3, r=2.4 | Code/Reproduce_corner_result/Depth_3_R2.4_bgk0008/data3 | 0.00030863243840739533   | 0.10106883983157165 |
-| bg_k=0.0008, d=5, r=2.4 | --- | ---  |---|
+| bg_k=0.0008, d=5, r=2.4 | Code/Reproduce_corner_result/Depth_5_R2.4_bgk0008/data3 | 0.0003042199859165148  |0.252922274802693|
 | bg_k=0.0008, d=7, r=2.4 | Code/Reproduce_corner_result/Depth_7_R2.4_bgk0008/data3 | 0.00018113566847798642   | 0.5630658911177207 |
 | bg_k=0.0008, d=7, r=4 | Code/Reproduce_corner_result/Depth_7_R4_bgk0008/data3 | 0.0014987994024467527   | 0.04073500973066669 |
 
